@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handler</title>
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+    <h2>letakkan kursor ke masing-masing kotak untuk melihat gambar</h2>
+    <div id="div1" class="animal">
+        Hewan Bebek
+    </div>
+    <div id="div2" class="animal">
+        Hewan kucing
+    </div>
+    <div id="div3" class="animal">
+        Hewan ayam
+    </div>
+
+    <!-- Audio for each animal -->
+    <audio id="sound1" src="Sound/cannard.mp3"></audio>
+    <audio id="sound2" src="Sound/cat-meow-mp3.mp3"></audio>
+    <audio id="sound3" src="Sound/som-de-galinha.mp3"></audio>
+
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script>
+        $("document").ready(function(){
+            $(".animal").mouseover(function(){
+                // Mengambil ID suara berdasarkan ID div
+                var soundID = $(this).attr('id').replace('div', 'sound');
+                // Memainkan suara
+                document.getElementById(soundID).play();
+            });
+
+            $(".animal").mouseout(function(){
+                // Menghentikan suara saat mouse keluar dari gambar
+                var soundID = $(this).attr('id').replace('div', 'sound');
+                document.getElementById(soundID).pause();
+                document.getElementById(soundID).currentTime = 0; // Mengembalikan suara ke awal
+            });
+
+            $("#div1").mouseover(function(){
+                $(this).css({
+                    background: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/White_domesticated_duck%2C_stretching.jpg/1200px-White_domesticated_duck%2C_stretching.jpg')"
+                });
+            });
+                $("div").mouseout(function(){
+                    $(this).css({
+                        background: "green"
+                    })
+                })
+            $("#div2").mouseover(function(){
+                $(this).css({
+                    background: "url('https://awsimages.detik.net.id/community/media/visual/2023/05/10/ilustrasi-kucing-1_169.jpeg?w=600&q=90')"
+                });
+            });
+            $("#div3").mouseover(function(){
+                $(this).css({
+                    background: "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNiKYYUkbxlX176TAdInu0Xv9ESIK8wJeTZg&usqp=CAU')"
+                });
+            });
+        });
+    </script>
+</body>
+</html>

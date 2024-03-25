@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+    margin: auto;
+    background-color: bisque;
+}
+.animal{
+    display: inline-block;
+    margin: auto;
+    width: 80%;
+    border: 3px solid #ddd;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    background: rgb(224, 140, 80);
+    height: 400px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
